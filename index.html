@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>the basement for studio geographies</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/w3.css">
+    <script src="js/w3.js"></script>
+    <style>
+        @font-face { font-family: sspXL; 
+			 src: url('fonts/sspXL.otf'); }
+        #mainContent{
+            font-family: sspXL;
+            font-size:20px;
+        }
+        #home{
+            background-color: rgb(255, 255, 255);
+            font-size: 40px;
+            line-height: 50px;
+            padding: 18px;
+            width:100%;
+        }
+        .people{
+            float:left;
+            /*border:1px dashed gray;*/
+            width:75%;
+        }
+        .accordion {
+            background-color: #ffffff;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            transition: 0.4s;
+        }
+
+         .accordion:hover {
+            background-color: #ff97d4;
+        }
+
+        .panel {
+            padding: 0 28px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .boxText{
+            padding:0 28px;
+        }
+        a:link, a:visited{
+            color: darkblue;
+        }
+        a:hover {
+            background-color: #ff97d4;
+        }
+        img{
+            float:left;
+            margin:5px;
+        }
+    
+</style>
+
+<body>
+
+
+<div class="w3-content" id="mainContent">
+    <div id="home" class="w3-container s11 m8 l8">
+        the basement [for studio geographies]
+    </div>
+    <div class="w3-container s11 m8 l8 boxText">
+        the basement is a place for Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+    <button class="accordion">&#9656; PROJECTS</button>
+    <div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+    <button class="accordion">&#9656; PEOPLE</button>
+    <div class="panel" id="people">
+        <p class="people"><img src="images/nick.png" /><b>Nick Lally</b> is an Assistant Professor of Geography. His research interests include speculative cartography, critical computation, visual studies, and technologies of policing. <a href="https://geography.as.uky.edu/users/npla224" target="_blank">Faculty website</a> | <a href="http://www.nicklally.com" target="_blank">Portfolio</a></p>
+        <p class="people"><b>Àlex Muñoz-Viso</b> is a human geographer working at the intersection of urban, digital, and political geographies. <a href="https://geography.as.uky.edu/users/amu316" target="_blank">Website</a></p>
+        <p class="people"><b>Bea Abbott</b> is a graduate student who researches migration, visual culture, and science and technology studies. <a href="https://geography.as.uky.edu/users/bab231" target="_blank">Website</a></p>
+        <p class="people"><b>Christian Brooks Keeve</b>, Floridian and aspiring cryptid, does a lot of things with seeds and with the people who care about them. <a href="https://geography.as.uky.edu/users/cbke227">Website</a></p>
+        <p class="people"><b>Katrina Ward</b> is a critical human geographer, currently pursuing a PhD in Geography and researching carcerality in Oklahoma. <a href="https://geography.as.uky.edu/users/kwa308" target="_blank">Website</a> | <a href="https://katrinamakesthings.com/" target="_blank">Portfolio</a></p>
+    </div>
+
+    <button class="accordion">&#9656; BE IN TOUCH</button>
+    <div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+</script>
+
+</body>
+</html> 
