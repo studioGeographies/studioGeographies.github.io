@@ -8,7 +8,7 @@
             import * as pmtiles from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
             import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.mjs';
             import { Protocol } from 'pmtiles';
-            const protocol = new Protocol();
+            let protocol = new Protocol();
             maplibregl.addProtocol('pmtiles', protocol.tile);
 
             const map = new maplibregl.Map({
