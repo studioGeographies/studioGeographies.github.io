@@ -3,13 +3,15 @@
     </head>
 <body>
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.css" />
+    <script src="https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@5.13.0/dist/maplibre-gl.js" crossorigin="anonymous"></script>
+
     <div id="map" style="height: 1000px"></div>
         <script type="module">
-            //import * as pmtiles from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
-            import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.mjs';
-            import { PMTiles, Protocol } from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
-            let protocol = new Protocol();
-            maplibregl.addProtocol('pmtiles', protocol.tile);
+           // import * as pmtiles from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
+           // import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.mjs';
+           let protocol = new pmtiles.Protocol({metadata: true});
+           maplibregl.addProtocol("pmtiles", protocol.tile);
 
             const map = new maplibregl.Map({
                 container: 'map', // container id
