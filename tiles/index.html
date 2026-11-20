@@ -1,0 +1,42 @@
+<html>
+    <head>
+    </head>
+<body>
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.css" />
+    <div id="map" style="height: 1000px"></div>
+        <script type="module">
+            import * as pmtiles from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
+            import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.mjs';
+
+            const map = new maplibregl.Map({
+                container: 'map', // container id
+                style: {
+                    version: 8,
+                    sources: {
+                    tiles: {
+                        type: 'vector',
+                        url: 'pmtiles://output3.pmtiles'
+                    }
+                    },
+                    layers: [
+                    {
+                        id: 'str',
+                        type: 'circle',
+                        paint: { 'background-color': '#f8f4f0' }
+                    },
+                    {
+                        id: 'streets',
+                        type: 'line',
+                        paint: { 'stroke-color': '#a0c8f0' }
+                    }
+                    // add more layers as needed — each uses the same source, different 'source-layer'
+                    ]
+                },
+                center: [-84.5, 38], // starting position [lng, lat]
+                zoom: 5 // starting zoom
+            });
+        </script>
+</body>
+</html>
+
+           
