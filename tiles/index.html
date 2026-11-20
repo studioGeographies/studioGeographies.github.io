@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.css" />
     <div id="map" style="height: 1000px"></div>
         <script type="module">
-            import * as pmtiles from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
+            //import * as pmtiles from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
             import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.mjs';
-            import { Protocol } from 'pmtiles';
+            import { PMTiles, Protocol } from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
             let protocol = new Protocol();
             maplibregl.addProtocol('pmtiles', protocol.tile);
 
