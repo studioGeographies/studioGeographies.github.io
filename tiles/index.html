@@ -8,8 +8,6 @@
 
     <div id="map" style="height: 1000px"></div>
         <script type="module">
-           // import * as pmtiles from 'https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js';
-           // import * as maplibregl from 'https://unpkg.com/maplibre-gl@^6.19.0/dist/maplibre-gl.mjs';
            let protocol = new pmtiles.Protocol({metadata: true});
            maplibregl.addProtocol("pmtiles", protocol.tile);
 
@@ -20,29 +18,41 @@
                     sources: {
                         'tiles': {
                             type: 'vector',
-                            url: 'pmtiles://https://studiogeographies.github.io/tiles/data/output3.pmtiles'
+                            url: 'pmtiles://data/output4.pmtiles'
                     }
                     },
                     layers: [
-                    {
-                        'id': 'str',
-                        'source':'tiles',
-                        'source-layer': 'str',
-                        'type': 'circle',
-                        'paint': { 'circle-color': '#f8f4f0' }
+                        {
+                            'id': 'background',
+                            'type': 'background',
+                            'paint': { 'background-color': '#112947'}
                     },
                     {
                         'id': 'streets',
                         'source':'tiles',
                         'source-layer':'streets',
                         'type': 'line',
-                        'paint': { 'line-color': '#a0c8f0' }
+                        'paint': { 'line-color': '#406D99' }
+                    },
+                    {
+                        'id': 'building',
+                        'source':'tiles',
+                        'source-layer':'building',
+                        'type': 'fill',
+                        'paint': { 'fill-color': '#21446B' }
+                    },
+                    {
+                        'id': 'str',
+                        'source':'tiles',
+                        'source-layer': 'str',
+                        'type': 'circle',
+                        'paint': { 'circle-color': '#F21FBC' }
                     }
                     // add more layers as needed — each uses the same source, different 'source-layer'
                     ]
                 },
-                center: [-84.5, 38], // starting position [lng, lat]
-                zoom: 5 // starting zoom
+                center: [-84.50427, 38.03888], // starting position [lng, lat]
+                zoom: 12 // starting zoom
             });
         </script>
 </body>
