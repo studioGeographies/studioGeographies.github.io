@@ -54,6 +54,33 @@
                 center: [-84.50427, 38.03888], // starting position [lng, lat]
                 zoom: 12 // starting zoom
             });
+
+            map.on('click', 'str', (e) => {
+                    const coordinates = e.features[0].geometry.coordinates.slice();
+                    const description = e.features[0].properties.address;
+
+                    // Ensure that if the map is zoomed out such that multiple
+                    // copies of the feature are visible, the popup appears
+                    // over the copy being pointed to.
+                    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                    }
+
+                    new maplibregl.Popup()
+                        .setLngLat(coordinates)
+                        .setHTML(description)
+                        .addTo(map);
+                });
+
+                // Change the cursor to a pointer when the mouse is over the str layer.
+                map.on('mouseenter', 'str', () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+
+                // Change it back to a pointer when it leaves.
+                map.on('mouseleave', 'str', () => {
+                    map.getCanvas().style.cursor = '';
+                });
         </script>
 </body>
 </html>
