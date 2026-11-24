@@ -16,9 +16,9 @@
                 style: {
                     version: 8,
                     sources: {
-                        'tiles': {
+                        'tiles': { //source name, must match in layers below
                             type: 'vector',
-                            url: 'pmtiles://data/output4.pmtiles'
+                            url: 'pmtiles://data/output4.pmtiles' //path to pmtiles file
                     }
                     },
                     layers: [
@@ -28,8 +28,8 @@
                             'paint': { 'background-color': '#112947'}
                     },
                     {
-                        'id': 'streets',
-                        'source':'tiles',
+                        'id': 'streets', //must match id in pmtiles, use https://pmtiles.io/ to inspect your pmtiles file
+                        'source':'tiles', //must match name above under 'sources'
                         'source-layer':'streets',
                         'type': 'line',
                         'paint': { 'line-color': '#406D99' }
@@ -57,7 +57,7 @@
 
             map.on('click', 'str', (e) => {
                     const coordinates = e.features[0].geometry.coordinates.slice();
-                    const description = e.features[0].properties.address;
+                    const description = e.features[0].properties.address; //must match details in pmtiles file, use https://pmtiles.io/ to view
 
                     // Ensure that if the map is zoomed out such that multiple
                     // copies of the feature are visible, the popup appears
